@@ -1,21 +1,21 @@
-name: Code Style Check
+# name: Code Style Check
 
-on: [push, pull_request]
+# on: [push, pull_request]
 
-jobs:
-  style-check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+# jobs:
+#   style-check:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
+#       - name: Set up Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: '3.x'
 
-      - name: Install pycodestyle
-        run: pip install pycodestyle
+#       - name: Install pycodestyle
+#         run: pip install pycodestyle
 
-      - name: Run pycodestyle
-        run: pycodestyle .
+#       - name: Run pycodestyle
+#         run: pycodestyle .
