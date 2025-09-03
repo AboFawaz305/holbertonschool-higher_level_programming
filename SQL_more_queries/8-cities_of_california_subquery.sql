@@ -2,11 +2,11 @@
 SELECT
     id,
     name
-FROM hbtn_0d_usa.cities
+FROM cities
 WHERE
     state_id = (
-        SELECT hbtn_0d_usa.states.id
-        FROM hbtn_0d_usa.states
-        WHERE hbtn_0d_usa.states.name = 'California'
+        SELECT states.id
+        FROM states
+        WHERE states.name = 'California'
     )
 ORDER BY id ASC;
