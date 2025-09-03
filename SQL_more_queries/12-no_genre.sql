@@ -1,0 +1,8 @@
+-- list all shows contained that have at least one genre linked
+SELECT
+    tv.title,
+    tvg.genre_id
+FROM tv_shows AS tv
+LEFT JOIN tv_show_genres AS tvg ON tv.id = tvg.show_id
+WHERE tvg.genre_id IS NULL
+ORDER BY tv.title, tvg.genre_id ASC;
