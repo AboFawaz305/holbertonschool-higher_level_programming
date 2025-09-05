@@ -26,6 +26,6 @@ if __name__ == "__main__":
         .first()
     )
     if state is not None:
-        print(f"{state.id}: {state.name}")
+        print(f"{state.id}")
     else:
         print("Not found")
