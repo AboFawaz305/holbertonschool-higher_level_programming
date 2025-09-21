@@ -3,7 +3,7 @@ const createLi = (text) => {
   if (text) {
     li.innerText = text;
   }
-  return li ;
+  return li;
 };
 const itemAddButton = document.querySelector('#add_item');
 const list = document.querySelector('.my_list');
