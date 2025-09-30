@@ -1,0 +1,40 @@
+#!/usr/bin/python
+"""
+Generate invitations from templates
+"""
+
+
+def verify_value_of_type(value, expected_type):
+    """
+    verify value is of the expected type. If not throw a TypeError.
+    """
+    if type(value) is not expected_type:
+        log_msg = f"Expected value of type {expected_type} but got {type(value)}"
+        print(log_msg)
+        raise TypeError(log_msg)
+
+
+def generate_invitations(template: str, attendees: list):
+    """
+    generate an invitation from a template for attendees and print the results.
+    """
+    verify_value_of_type(template, str)
+    verify_value_of_type(attendees, list)
+    if len(template) == 0:
+        log_msg = "Template is empty, no output files generated."
+        print(log_msg)
+        return
+    if len(attendees) == 0:
+        log_msg = "No data provided, no output files generated."
+        print(log_msg)
+        return
+    for i in range(0, len(attendees)):
+        for key in attendees[i].keys():
+            if attendees[i][key] is None:
+                attendees[i][key] = f"{key}: N/A"
+        msg = template
+        for key, value in attendees[i].items():
+            replacement = str(value)
+            msg = msg.replace("{" + key + "}", replacement)
+        with open(f"output_{i}.txt", "w") as out:
+            out.write(msg)

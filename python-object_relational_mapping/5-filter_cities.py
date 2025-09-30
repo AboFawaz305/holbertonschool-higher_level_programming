@@ -32,7 +32,6 @@ def list_all():
             db=database,
         )
         cursor = db.cursor()
-
         query = """SELECT C.id,C.name,S.name
             FROM cities C INNER JOIN states S ON C.state_id=S.id
             WHERE BINARY S.name=%s
